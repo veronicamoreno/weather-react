@@ -1,6 +1,7 @@
-import reactDom, {useState} from "react";
-import ReactDOM from 'react-dom';
+import React, {useState} from "react";
+// import ReactDOM from 'react-dom';
 import axios from 'axios';
+
 
 export default function Weather(props) {
   let [city, setCity] = useState("");
