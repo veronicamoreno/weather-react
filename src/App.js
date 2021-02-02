@@ -9,7 +9,7 @@ function App() {
         <img src={logo} alt="Logo" />
         <h1>Weather App </h1>
         <Weather/>
-        <span><a href="https://github.com/veronicamoreno/weather-react" target="_blank">Open-sourced code </a> by Veronica Moreno</span>
+        <span><a href="https://github.com/veronicamoreno/weather-react" rel="noopener noreferrer" target="_blank">Open-sourced code </a> by Veronica Moreno</span>
 
       </header>
     </div>
