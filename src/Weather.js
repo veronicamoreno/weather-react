@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from 'axios';
+import './weather.css';
 
 
 export default function Weather(props) {
@@ -54,16 +55,28 @@ export default function Weather(props) {
       <div>
         {form}
         <div className="Weather">
-          <p>Forecast in {city}:</p>
-          <ul>
-            <li>Temperature: {temperature}°C</li>
-            <li>Description: {description}</li>
-            <li>Humidity: {humidity}%</li>
-            <li>Wind {wind}km/h</li>
-            <li>
-              <img alt="" src={image} />{" "}
-            </li>
-          </ul>
+          <h2>{city}</h2>
+          <p>Monday 12:47</p>
+
+          <div className="row">
+            <div className="col-6">
+
+            <div>
+              <img alt="weather icon" src={image} />{" "}
+              <span className="description">{description}</span><br/>
+
+
+              </div>
+
+              <div className="display-weather">
+                <p>{temperature}°C | F
+              Humidity: {humidity}%
+              Wind {wind}km/h</p>
+             </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
     );

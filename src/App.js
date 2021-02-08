@@ -8,7 +8,7 @@ function App() {
       <div className="container">
         <header className="App-header">
           <img src={logo} alt="Logo" />
-          <h1>Weather App </h1>
+          <h1>Weather App</h1>
           <Weather/>
         </header>
         <footer>
