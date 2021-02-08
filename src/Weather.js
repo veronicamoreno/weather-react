@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-// import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 
@@ -11,6 +10,7 @@ export default function Weather(props) {
   let [wind, setWind] = useState(null);
   let [image, setImage] = useState(null);
   let [populated, setPopulated] = useState(false);
+
 
   function showTemperature(response) {
     setTemperature(Math.round(response.data.main.temp));
@@ -59,7 +59,7 @@ export default function Weather(props) {
             <li>Temperature: {temperature}°C</li>
             <li>Description: {description}</li>
             <li>Humidity: {humidity}%</li>
-            <li>Wind: {wind}km/h</li>
+            <li>Wind {wind}km/h</li>
             <li>
               <img alt="" src={image} />{" "}
             </li>
