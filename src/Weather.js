@@ -53,7 +53,12 @@ export default function Weather(props) {
   if (populated) {
     return (
       <div>
+        {/* <div className="btn-toolbar">
+        <button type="button" className="btn">Current</button>
+        <div className="input-group"> */}
         {form}
+        {/* </div>
+        </div> */}
         <div className="Weather">
           <h2>{city}</h2>
           <p>Monday 12:47</p>
@@ -81,6 +86,13 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    return <div>{form}</div>;
+    return  (
+        <div className="btn-toolbar">
+          <button type="button" className="btn">Current</button>
+            <div className="input-group">
+              {form}
+            </div>
+        </div>
+        );
   }
 }
