@@ -43,7 +43,8 @@ export default function Weather(props) {
       <input
         className="type-city"
         type="search"
-        placeholder="Type a city"
+        placeholder="Enter city"
+        autoFocus="on"
         onChange={updateCity}
       />
       <input className="search" type="submit" value="Search" />
@@ -74,8 +75,8 @@ export default function Weather(props) {
               </div>
 
               <div className="display-weather">
-                <p>{temperature}°C | F
-              Humidity: {humidity}%
+                <p><span className="temperature"> {temperature}</span><span className="units"> °C | F</span>{" "}|{" "}
+              Humidity: {humidity}%{" "}|{" "}
               Wind {wind}km/h</p>
              </div>
 
