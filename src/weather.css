@@ -18,6 +18,7 @@
 }
 .Weather h2 {
   padding: 20px 0px 0px 0px;
+  text-transform: capitalize;
 }
 
 .Weather p {
@@ -76,9 +77,12 @@
   color: #ffffff;
   margin-top: 30px;
 }
-
+.date {
+  line-height: 10px;
+}
 .description {
   text-align: left;
+  text-transform: capitalize;
 }
 
 .display-weather p {
@@ -96,4 +100,5 @@
   font-size: 16px;
   position: relative;
   top: -10px;
+  margin-right: 10px;
 }

@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import axios from 'axios';
 import './weather.css';
+import FormattedDate from "./FormattedDate";
 
 
 export default function Weather(props) {
   let [city, setCity] = useState("");
+  let [date, setDate]=useState(null);
   let [temperature, setTemperature] = useState(null);
   let [description, setDescription] = useState("");
   let [humidity, setHumidity] = useState(null);
@@ -12,10 +14,10 @@ export default function Weather(props) {
   let [image, setImage] = useState(null);
   let [populated, setPopulated] = useState(false);
 
-
   function showTemperature(response) {
+    setDate(new Date(response.data.dt * 1000));
     setTemperature(Math.round(response.data.main.temp));
-    setDescription(response.data.weather[0].description);
+    setDescription( response.data.weather[0].description);
     setHumidity(response.data.main.humidity);
     setWind(Math.round(response.data.wind.speed));
     setImage(
@@ -54,23 +56,17 @@ export default function Weather(props) {
   if (populated) {
     return (
       <div>
-        {/* <div className="btn-toolbar">
-        <button type="button" className="btn">Current</button>
-        <div className="input-group"> */}
         {form}
-        {/* </div>
-        </div> */}
         <div className="Weather">
           <h2>{city}</h2>
-          <p>Monday 12:47</p>
+          <span className="date"><FormattedDate date={date} /></span>
 
           <div className="row">
             <div className="col-6">
 
             <div>
-              <img alt="weather icon" src={image} />{" "}
-              <span className="description">{description}</span><br/>
-
+              <img alt={description} src={image} />{" "}
+              <span className="description" >{description}</span><br/>
 
               </div>
 
