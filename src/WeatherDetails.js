@@ -1,17 +1,19 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import './weatherDetails.css';
+
 export default function WeatherDetails(props) {
 
     if (props.populated) {
     return(
         <div className="weatherDetails">
-          <h2>{props.city}</h2>
+            <h2> {props.city}</h2>
+          
           <span className="date"><FormattedDate date={props.date} /></span>
 
           <div className="row">
 
-            <div className="col-6">
+            <div className="col-sm-8 col-md-8 col-lg-6">
                 <div>
                 <img alt={props.description} src={props.image} />{" "}
                 <span className="description" >{props.description}</span><br/>
@@ -29,12 +31,13 @@ export default function WeatherDetails(props) {
         </div>
     );
     } else {
-        return  ( 
+        return  (
+            
         <div className="btn-toolbar">
-          {/* <button type="button" className="btn">Current</button> */}
+          {/* <button type="button" className="btn">Current</button>  */}
             <div className="input-group">
             </div>
-        </div>
+      </div>
         );
     }
 }

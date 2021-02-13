@@ -2,9 +2,11 @@
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  justify-content: center;
 }
+
 .btn {
-  width: 100px;
+  /* width: 100px; */
   height: 42px;
   font-size: 18px;
   text-align: center;
@@ -21,7 +23,7 @@
 }
 
 .type-city {
-  width: 274.34px;
+  /* width: 274.34px; */
   height: 38px;
   font-size: 18px;
   font-family: "Josefin Sans", sans-serif;

@@ -58,6 +58,7 @@ export default function Weather(props) {
       <div className="weather">
         <div className="search-engine">
         <button type="button" className="btn">Current</button>
+        
         {form}</div>
         
         <WeatherDetails city={city} date={date} description={description} image={image} temperature={temperature} humidity={humidity} wind={wind} populated={populated}/>
