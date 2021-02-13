@@ -1,0 +1,67 @@
+.weatherDetails {
+  font-family: "Josefin Sans";
+  font-size: 15px;
+  background: linear-gradient(
+      180deg,
+      rgba(187, 222, 251, 0.2) 0%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    rgba(187, 222, 251, 0.3);
+  backdrop-filter: blur(4px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 25px;
+
+  margin: 30px auto;
+  padding: 10px;
+  color: #ffffff;
+}
+
+/* @media only screen and (min-width: 768px) {
+  .weatherDetails {
+    width: 800px !important;
+  }
+} */
+
+.weatherDetails h2 {
+  padding: 20px 0px 0px 0px;
+  text-transform: capitalize;
+}
+
+.weatherDetails p {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 0px;
+}
+
+.weatherDetails img {
+  width: 70%;
+  height: 70%;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.date {
+  line-height: 10px;
+}
+.description {
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.display-weather p {
+  text-align: center;
+  font-size: 18px;
+}
+
+.temperature {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.units {
+  font-size: 16px;
+  position: relative;
+  top: -10px;
+  margin-right: 10px;
+}

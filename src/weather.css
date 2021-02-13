@@ -1,39 +1,8 @@
-.Weather {
-  width: 800px;
-  font-family: "Josefin Sans";
-  font-size: 15px;
-  background: linear-gradient(
-      180deg,
-      rgba(187, 222, 251, 0.2) 0%,
-      rgba(0, 0, 0, 0) 100%
-    ),
-    rgba(187, 222, 251, 0.3);
-  backdrop-filter: blur(4px);
-  /* Note: backdrop-filter has minimal browser support */
-  border-radius: 25px;
-
-  margin: 30px auto;
-  padding: 10px;
-  color: #ffffff;
+.search-engine {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
 }
-.Weather h2 {
-  padding: 20px 0px 0px 0px;
-  text-transform: capitalize;
-}
-
-.Weather p {
-  text-align: center;
-  font-size: 18px;
-  margin-top: 0px;
-}
-
-.Weather img {
-  width: 40%;
-  height: 40%;
-  margin-top: 0px;
-  padding-top: 0px;
-}
-
 .btn {
   width: 100px;
   height: 42px;
@@ -76,29 +45,4 @@
   border-radius: 0px 25px 25px 0px;
   color: #ffffff;
   margin-top: 30px;
-}
-.date {
-  line-height: 10px;
-}
-.description {
-  text-align: left;
-  text-transform: capitalize;
-}
-
-.display-weather p {
-  text-align: center;
-  font-size: 18px;
-}
-
-.temperature {
-  text-align: center;
-  font-size: 34px;
-  font-weight: 900;
-}
-
-.units {
-  font-size: 16px;
-  position: relative;
-  top: -10px;
-  margin-right: 10px;
 }

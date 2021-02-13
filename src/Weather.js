@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import axios from 'axios';
+import WeatherDetails from './WeatherDetails';
 import './weather.css';
-import FormattedDate from "./FormattedDate";
-
 
 export default function Weather(props) {
+
   let [city, setCity] = useState("");
   let [date, setDate]=useState(null);
   let [temperature, setTemperature] = useState(null);
@@ -53,11 +53,15 @@ export default function Weather(props) {
     </form>
   );
 
-  if (populated) {
+  // if (populated) {
     return (
-      <div>
-        {form}
-        <div className="Weather">
+      <div className="weather">
+        <div className="search-engine">
+        <button type="button" className="btn">Current</button>
+        {form}</div>
+        
+        <WeatherDetails city={city} date={date} description={description} image={image} temperature={temperature} humidity={humidity} wind={wind} populated={populated}/>
+        {/* <div className="Weather">
           <h2>{city}</h2>
           <span className="date"><FormattedDate date={date} /></span>
 
@@ -67,8 +71,7 @@ export default function Weather(props) {
             <div>
               <img alt={description} src={image} />{" "}
               <span className="description" >{description}</span><br/>
-
-              </div>
+            </div>
 
               <div className="display-weather">
                 <p><span className="temperature"> {temperature}</span><span className="units"> °C | F</span>{" "}|{" "}
@@ -79,17 +82,17 @@ export default function Weather(props) {
             </div>
           </div>
 
-        </div>
+        </div> */}
       </div>
     );
-  } else {
-    return  (
-        <div className="btn-toolbar">
-          <button type="button" className="btn">Current</button>
-            <div className="input-group">
-              {form}
-            </div>
-        </div>
-        );
-  }
+  // } else {
+  //   return  (
+  // <div className="btn-toolbar">
+ //   <button type="button" className="btn">Current</button>
+  //           <div className="input-group">
+  //             {form}
+  //           </div>
+  //       </div>
+  //       );
+  // }
 }
