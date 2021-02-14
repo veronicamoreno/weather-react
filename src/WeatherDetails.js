@@ -1,5 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import { Thermometer, Droplet, Wind } from 'react-feather';
 import './weatherDetails.css';
 
 export default function WeatherDetails(props) {
@@ -7,7 +8,7 @@ export default function WeatherDetails(props) {
     if (props.populated) {
     return(
         <div className="weatherDetails">
-            <h2> {props.city}</h2>
+            <h2> {props.city} </h2>
           
           <span className="date"><FormattedDate date={props.date} /></span>
 
@@ -20,9 +21,9 @@ export default function WeatherDetails(props) {
                 </div>
 
                 <div className="display-weather">
-                    <p><span className="temperature"> {props.temperature}</span><span className="units"> °C | F</span>{" "}|{" "}
-                Humidity: {props.humidity}%{" "}|{" "}
-                Wind {props.wind}km/h</p>
+                    <p><Thermometer/><span className="temperature"> {props.temperature}</span><span className="units"> °C | F</span>{" "}|{" "}
+                <Droplet/> {props.humidity}%{" "}|{" "}
+                <Wind /> {props.wind}km/h</p>
                 </div>
             </div>
 
