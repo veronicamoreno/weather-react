@@ -40,6 +40,7 @@ export default function Weather(props) {
     }
   }
 
+
   let form = (
     <form onSubmit={handleSubmit}>
   <input
@@ -49,7 +50,7 @@ export default function Weather(props) {
          placeholder="Enter city"
          autoFocus="on"
        />
-      <button className="search"  type="submit">
+      <button className="btn-search"  type="submit">
         <Search  />
       </button>
     </form>
