@@ -1,5 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import WeatherTemperature from "./WeatherTemperature";
 import { Thermometer, Droplet, Wind } from 'react-feather';
 import './weatherDetails.css';
 
@@ -21,9 +22,7 @@ export default function WeatherDetails(props) {
                 </div>
 
                 <div className="display-weather">
-                    <p><Thermometer/><span className="temperature"> {props.temperature}</span><span className="units"> °C | F</span>{" "}|{" "}
-                <Droplet/> {props.humidity}%{" "}|{" "}
-                <Wind /> {props.wind}km/h</p>
+                    <WeatherTemperature celsius={props.temperature}/>
                 </div>
             </div>
 

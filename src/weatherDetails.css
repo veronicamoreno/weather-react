@@ -48,20 +48,7 @@
   text-transform: capitalize;
 }
 
-.display-weather p {
+.display-weather {
   text-align: center;
   font-size: 18px;
-}
-
-.temperature {
-  text-align: center;
-  font-size: 34px;
-  font-weight: 900;
-}
-
-.units {
-  font-size: 16px;
-  position: relative;
-  top: -10px;
-  margin-right: 10px;
 }

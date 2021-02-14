@@ -1,0 +1,31 @@
+.WeatherTemperature p {
+  padding: 0px 50px;
+}
+
+.temperature {
+  font-size: 34px;
+  font-weight: 900;
+  padding-right: 5px;
+  position: relative;
+  top: 5px;
+}
+
+.units {
+  font-size: 14px;
+  position: relative;
+  top: -10px;
+  margin-right: 10px;
+  font-weight: bolder;
+}
+
+.units :hover {
+  text-decoration: none !important;
+  color: #555555;
+}
+
+.units a {
+  color: #bbdefb;
+  border-bottom: 1px solid#bbdefb;
+  padding-bottom: 2px;
+  font-weight: lighter;
+}
