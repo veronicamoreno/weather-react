@@ -1,13 +1,12 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
-import { Thermometer, Droplet, Wind } from 'react-feather';
+import WeatherForecast from "./WeatherForecast";
 import './weatherDetails.css';
 
 export default function WeatherDetails(props) {
 
-    if (props.populated) {
-    return(
+return(
         <div className="weatherDetails">
             <h2> {props.city} </h2>
           
@@ -22,22 +21,16 @@ export default function WeatherDetails(props) {
                 </div>
 
                 <div className="display-weather">
-                    <WeatherTemperature celsius={props.temperature}/>
+                    <WeatherTemperature celsius={props.temperature} wind={props.wind} humidity={props.humidity}/>
                 </div>
+            </div>
+            <div className="showForecast col-sm-8 col-md-8 col-lg-4">
+                <WeatherForecast city={props.city} forecast={props.forecast} />
             </div>
 
           </div>
 
         </div>
     );
-    } else {
-        return  (
-            
-        <div className="btn-toolbar">
-          {/* <button type="button" className="btn">Current</button>  */}
-            <div className="input-group">
-            </div>
-      </div>
-        );
-    }
+
 }

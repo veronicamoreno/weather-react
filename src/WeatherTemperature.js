@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import { Thermometer, Droplet, Wind } from 'react-feather';
 import './WeatherTemperature.css';
 
-
 export default function WeatherTemperature(props) {
 
     let [unit, setUnit] = useState("celsius");

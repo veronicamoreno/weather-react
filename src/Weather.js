@@ -13,19 +13,33 @@ export default function Weather(props) {
   let [humidity, setHumidity] = useState(null);
   let [wind, setWind] = useState(null);
   let [image, setImage] = useState(null);
-  let [populated, setPopulated] = useState(false);
+  let [forecast, setForecast] = useState(null);
 
-  function showTemperature(response) {
-    setDate(new Date(response.data.dt * 1000));
-    setTemperature(Math.round(response.data.main.temp));
-    setDescription( response.data.weather[0].description);
-    setHumidity(response.data.main.humidity);
-    setWind(Math.round(response.data.wind.speed));
+  function setWeather(response) {
+    let dataWeather = response[0].data;
+    let dataForecast = response[1].data;
+    setDate(new Date(dataWeather.dt * 1000));
+    setTemperature(Math.round(dataWeather.main.temp));
+    setDescription(dataWeather.weather[0].description);
+    setHumidity(dataWeather.main.humidity);
+    setWind(Math.round(dataWeather.wind.speed));
     setImage(
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+      `http://openweathermap.org/img/wn/${dataWeather.weather[0].icon}@2x.png`
     );
+    setForecast(dataForecast);
+  }
 
-    setPopulated(true);
+  function getCurrentWeather(citySearch) {
+
+    let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+
+    let urlWeather = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&appid=${apiKey}&units=metric`;
+    const requestWeather = axios.get(urlWeather);
+
+    let urlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${citySearch}&appid=${apiKey}&units=metric`;
+    const requestForecast = axios.get(urlForecast);
+
+   axios.all([requestWeather, requestForecast]).then(setWeather);
   }
 
   function handleSubmit(event) {
@@ -35,11 +49,9 @@ export default function Weather(props) {
 
     if (citySearch !== "") {
       setCity(citySearch);
-      let url = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&appid=a37867e9632956f71edc348b80f1ca35&units=metric`;
-      axios.get(url).then(showTemperature);
+      getCurrentWeather(citySearch);
     }
   }
-
 
   let form = (
     <form onSubmit={handleSubmit}>
@@ -56,12 +68,23 @@ export default function Weather(props) {
     </form>
   );
 
-    return (
+    if(date){
+      return (
       <div className="weather">
         <div className="search-engine">
         <button type="button" className="btn" ><MapPin/></button>
         {form}</div>
-        <WeatherDetails city={city} date={date} description={description} image={image} temperature={temperature} humidity={humidity} wind={wind} populated={populated}/>
+        <WeatherDetails city={city} date={date} description={description} image={image} temperature={temperature} wind={wind} humidity={humidity} forecast={forecast} />
       </div>
     );
+    }
+    else{
+      return (
+      <div className="weather">
+        <div className="search-engine">
+        <button type="button" className="btn" ><MapPin/></button>
+        {form}</div>
+      </div>
+    );
+    }
 }

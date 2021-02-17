@@ -29,7 +29,7 @@ button:active {
 }
 
 .btn-search {
-  width: 75px;
+  width: 55px;
   height: 42px;
   border-radius: 0px 25px 25px 0px;
   margin-top: 30px;
@@ -48,7 +48,7 @@ button:active {
   box-sizing: border-box;
   border-radius: 25px 0px 0px 25px;
 
-  padding: 20px;
+  padding: 10px;
 }
 
 /* clears the ‘X’ from Internet Explorer */

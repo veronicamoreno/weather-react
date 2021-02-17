@@ -1,0 +1,8 @@
+.WeatherForecastData {
+  margin-bottom: 10px;
+}
+
+.WeatherForecastData img {
+  width: 40px !important;
+  height: auto;
+}

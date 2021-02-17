@@ -11,6 +11,7 @@
   /* Note: backdrop-filter has minimal browser support */
   border-radius: 25px;
 
+  /* width: 120% !important; */
   margin: 30px auto;
   padding: 10px;
   color: #ffffff;
@@ -18,7 +19,7 @@
 
 @media only screen and (min-width: 768px) {
   .weatherDetails {
-    width: 800px !important;
+    width: 900px !important;
   }
 }
 
@@ -51,4 +52,11 @@
 .display-weather {
   text-align: center;
   font-size: 18px;
+}
+
+@media only screen and (min-width: 768px) {
+  .showForecast {
+    padding-left: 115px !important;
+    padding-right: 0px !important;
+  }
 }
