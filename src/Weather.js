@@ -27,19 +27,42 @@ export default function Weather(props) {
       `http://openweathermap.org/img/wn/${dataWeather.weather[0].icon}@2x.png`
     );
     setForecast(dataForecast);
+   setCity(dataWeather.name);
   }
 
-  function getCurrentWeather(citySearch) {
+  function getCurrentWeather(citySearch, geoLocation) {
 
-    let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiKey = "a37867e9632956f71edc348b80f1ca35";
+    let urlWeather;
+    let urlForecast;
 
-    let urlWeather = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&appid=${apiKey}&units=metric`;
+    if(geoLocation){
+      urlWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${citySearch.latitude}&lon=${citySearch.longitude}&appid=${apiKey}&units=metric`;
+    }
+    else{
+      urlWeather = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&appid=${apiKey}&units=metric`;
+    }
+
     const requestWeather = axios.get(urlWeather);
 
-    let urlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${citySearch}&appid=${apiKey}&units=metric`;
+    if(geoLocation)
+    {
+    urlForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${citySearch.latitude}&lon=${citySearch.longitude}&appid=${apiKey}&units=metric`;
+    }
+    else{
+    urlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${citySearch}&appid=${apiKey}&units=metric`;      
+    }
     const requestForecast = axios.get(urlForecast);
 
    axios.all([requestWeather, requestForecast]).then(setWeather);
+  }
+
+function getPosition(position) {
+  getCurrentWeather(position.coords, true);
+}
+
+  function getCurrentLocation() {
+    navigator.geolocation.getCurrentPosition(getPosition);
   }
 
   function handleSubmit(event) {
@@ -49,7 +72,7 @@ export default function Weather(props) {
 
     if (citySearch !== "") {
       setCity(citySearch);
-      getCurrentWeather(citySearch);
+      getCurrentWeather(citySearch, false);
     }
   }
 
@@ -72,7 +95,7 @@ export default function Weather(props) {
       return (
       <div className="weather">
         <div className="search-engine">
-        <button type="button" className="btn" ><MapPin/></button>
+        <button type="button" className="btn" onClick={getCurrentLocation} ><MapPin/></button>
         {form}</div>
         <WeatherDetails city={city} date={date} description={description} image={image} temperature={temperature} wind={wind} humidity={humidity} forecast={forecast} />
       </div>
@@ -82,7 +105,7 @@ export default function Weather(props) {
       return (
       <div className="weather">
         <div className="search-engine">
-        <button type="button" className="btn" ><MapPin/></button>
+        <button type="button" className="btn" onClick={getCurrentLocation} ><MapPin/></button>
         {form}</div>
       </div>
     );
