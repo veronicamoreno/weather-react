@@ -24,7 +24,7 @@ export default function Weather(props) {
     setHumidity(dataWeather.main.humidity);
     setWind(Math.round(dataWeather.wind.speed));
     setImage(
-      `http://openweathermap.org/img/wn/${dataWeather.weather[0].icon}@2x.png`
+      `https://openweathermap.org/img/wn/${dataWeather.weather[0].icon}@2x.png`
     );
     setForecast(dataForecast);
    setCity(dataWeather.name);

@@ -24,7 +24,7 @@ export default function WeatherForecastData(props) {
     return(
         <div className="WeatherForecastData">                
             < Clock/> {hours()}   | 
-            <img alt={props.data.weather.description} src={`http://openweathermap.org/img/wn/${props.data.weather[0].icon}@2x.png`}/>{" "}|  
+            <img alt={props.data.weather.description} src={`https://openweathermap.org/img/wn/${props.data.weather[0].icon}@2x.png`}/>{" "}|  
             < Thermometer/> {temperature()}
         </div>
 
